@@ -3,54 +3,64 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<meta name="theme-color" content="#1a1a2e" />
-<title>Tower Box - Stack the Boxes!</title>
+<meta name="theme-color" content="#7ec8e3" />
+<title>Tower Box - Build the Tallest Tower!</title>
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="game-container">
-    <canvas id="gameCanvas"></canvas>
+<div id="game-container">
+  <canvas id="gameCanvas"></canvas>
 
-    <!-- HUD -->
-    <div id="hud">
-      <div class="hud-item"><span class="label">Score</span><span id="score">0</span></div>
-      <div class="hud-item"><span class="label">Best</span><span id="best">0</span></div>
-      <div class="hud-item"><span class="label">Combo</span><span id="combo">x1</span></div>
+  <!-- HUD -->
+  <div id="hud">
+    <div class="hud-left">
+      <div class="hud-pill"><span class="icon">🏢</span><span id="floors">0</span></div>
+      <div class="hud-pill"><span class="icon">⭐</span><span id="stars">0</span></div>
     </div>
-
-    <!-- Start Screen -->
-    <div id="startScreen" class="overlay">
-      <img src="assets/logo.png" alt="Tower Box" class="logo" />
-      <p class="tagline">Tap / Click to stack perfectly!</p>
-      <button id="startBtn" class="btn">▶ PLAY</button>
-      <button id="muteBtn" class="btn small">🔊 Sound: ON</button>
-      <div class="hint">Perfect stack = bonus combo & sparkles ✨</div>
-      <div class="credit">Developed by <span>Mainul Fuad</span></div>
+    <div class="hud-right">
+      <div class="hud-pill coin"><span class="icon">🪙</span><span id="coins">0</span></div>
+      <button id="pauseBtn" class="icon-btn hidden">⏸</button>
     </div>
-
-    <!-- Pause Screen -->
-    <div id="pauseScreen" class="overlay hidden">
-      <h1 class="pause-title">⏸ Paused</h1>
-      <button id="resumeBtn" class="btn">▶ Resume</button>
-      <button id="quitBtn" class="btn small">🏠 Main Menu</button>
-      <div class="credit">Developed by <span>Mainul Fuad</span></div>
-    </div>
-
-    <!-- Game Over Screen -->
-    <div id="gameOverScreen" class="overlay hidden">
-      <h1 class="game-over-title">Game Over!</h1>
-      <div class="final-stats">
-        <p>Score: <span id="finalScore">0</span></p>
-        <p>Best: <span id="finalBest">0</span></p>
-        <p>Height: <span id="finalHeight">0</span> floors</p>
-      </div>
-      <button id="restartBtn" class="btn">🔄 Play Again</button>
-      <div class="credit">Developed by <span>Mainul Fuad</span></div>
-    </div>
-
-    <!-- Pause Button -->
-    <button id="pauseBtn" class="pause-btn hidden">⏸</button>
   </div>
+
+  <!-- Leaderboard ghosts (left side) -->
+  <div id="ghosts" class="hidden">
+    <div class="ghost"><span class="g-score">293K</span><div class="g-tower"></div><span class="g-name">Camerlyus</span><span class="g-floor">71</span></div>
+    <div class="ghost"><span class="g-score">293K</span><div class="g-tower"></div><span class="g-name">Anonym</span><span class="g-floor">71</span></div>
+    <div class="ghost"><span class="g-score">293K</span><div class="g-tower"></div><span class="g-name">You</span><span class="g-floor" id="ghostFloor">0</span></div>
+  </div>
+
+  <!-- Start Screen -->
+  <div id="startScreen" class="overlay">
+    <h1 class="title">TOWER<span>BOX</span></h1>
+    <p class="tagline">Build the tallest tower in the city!</p>
+    <button id="startBtn" class="btn">▶ PLAY</button>
+    <button id="muteBtn" class="btn small">🔊 Sound: ON</button>
+    <div class="hint">Tap to drop the floor from the crane 🏗️<br/>Perfect stack = ⭐ STAR + bonus coins!</div>
+    <div class="credit">Developed by <span>Mainul Fuad</span></div>
+  </div>
+
+  <!-- Pause Screen -->
+  <div id="pauseScreen" class="overlay hidden">
+    <h1 class="pause-title">⏸ PAUSED</h1>
+    <button id="resumeBtn" class="btn">▶ Resume</button>
+    <button id="quitBtn" class="btn small">🏠 Main Menu</button>
+    <div class="credit">Developed by <span>Mainul Fuad</span></div>
+  </div>
+
+  <!-- Game Over Screen -->
+  <div id="gameOverScreen" class="overlay hidden">
+    <h1 class="game-over-title">TOWER FELL!</h1>
+    <div class="final-stats">
+      <p>🏢 Floors: <span id="finalFloors">0</span></p>
+      <p>⭐ Stars: <span id="finalStars">0</span></p>
+      <p>🪙 Coins: <span id="finalCoins">0</span></p>
+      <p class="best-row">🏆 Best: <span id="finalBest">0</span></p>
+    </div>
+    <button id="restartBtn" class="btn">🔄 Play Again</button>
+    <div class="credit">Developed by <span>Mainul Fuad</span></div>
+  </div>
+</div>
 
 <script src="game.js"></script>
 </body>
