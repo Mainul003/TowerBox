@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="theme-color" content="#1a1a2e" />
+<title>Tower Box - Stack the Boxes!</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="game-container">
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- HUD -->
+    <div id="hud">
+      <div class="hud-item"><span class="label">Score</span><span id="score">0</span></div>
+      <div class="hud-item"><span class="label">Best</span><span id="best">0</span></div>
+      <div class="hud-item"><span class="label">Combo</span><span id="combo">x1</span></div>
+    </div>
+
+    <!-- Start Screen -->
+    <div id="startScreen" class="overlay">
+      <img src="assets/logo.png" alt="Tower Box" class="logo" />
+      <p class="tagline">Tap / Click to stack perfectly!</p>
+      <button id="startBtn" class="btn">▶ PLAY</button>
+      <button id="muteBtn" class="btn small">🔊 Sound: ON</button>
+      <div class="hint">Perfect stack = bonus combo & sparkles ✨</div>
+      <div class="credit">Developed by <span>Mainul Fuad</span></div>
+    </div>
+
+    <!-- Pause Screen -->
+    <div id="pauseScreen" class="overlay hidden">
+      <h1 class="pause-title">⏸ Paused</h1>
+      <button id="resumeBtn" class="btn">▶ Resume</button>
+      <button id="quitBtn" class="btn small">🏠 Main Menu</button>
+      <div class="credit">Developed by <span>Mainul Fuad</span></div>
+    </div>
+
+    <!-- Game Over Screen -->
+    <div id="gameOverScreen" class="overlay hidden">
+      <h1 class="game-over-title">Game Over!</h1>
+      <div class="final-stats">
+        <p>Score: <span id="finalScore">0</span></p>
+        <p>Best: <span id="finalBest">0</span></p>
+        <p>Height: <span id="finalHeight">0</span> floors</p>
+      </div>
+      <button id="restartBtn" class="btn">🔄 Play Again</button>
+      <div class="credit">Developed by <span>Mainul Fuad</span></div>
+    </div>
+
+    <!-- Pause Button -->
+    <button id="pauseBtn" class="pause-btn hidden">⏸</button>
+  </div>
+
+<script src="game.js"></script>
+</body>
+</html>
